@@ -7,8 +7,6 @@ package jus.aor.mobilagent.hostel;
 import java.util.LinkedList;
 
 import jus.aor.mobilagent.kernel.Agent;
-import jus.aor.mobilagent.kernel.AgentServer;
-import jus.aor.mobilagent.kernel.Etape;
 import jus.aor.mobilagent.kernel.Hotel;
 import jus.aor.mobilagent.kernel.Numero;
 import jus.aor.mobilagent.kernel._Action;

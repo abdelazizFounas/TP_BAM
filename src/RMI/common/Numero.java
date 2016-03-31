@@ -11,6 +11,10 @@ import java.io.Serializable;
  * @author Morat 
  */
 public class Numero implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6781593535313002187L;
 	/** le numéro de téléphone */
 	private String numero;
 	private String name;

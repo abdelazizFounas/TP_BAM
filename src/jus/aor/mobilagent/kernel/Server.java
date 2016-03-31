@@ -6,16 +6,13 @@ package jus.aor.mobilagent.kernel;
 
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
-import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.net.InetAddress;
 import java.net.MalformedURLException;
 import java.net.Socket;
 import java.net.URI;
 import java.net.URL;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -45,15 +42,10 @@ public final class Server implements _Server{
 	 * @param port le port d'écuote du serveur d'agent 
 	 * @param name le nom du serveur
 	 */
-	public Server(final int port, final String name){
+	public Server(final int port, final String name) throws MalformedURLException{
 		this.name=name;
 		
-		try {
-			this.bscl = new BAMServerClassLoader(new URL[]{new URL("file://MobilagentServer.jar")}, this.getClass().getClassLoader());
-		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		this.bscl = new BAMServerClassLoader(new URL[]{}, this.getClass().getClassLoader());
 		try {
 			this.port=port;
 			/* mise en place du logger pour tracer l'application */

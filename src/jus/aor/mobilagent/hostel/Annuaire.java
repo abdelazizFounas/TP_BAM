@@ -2,7 +2,6 @@ package jus.aor.mobilagent.hostel;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.LinkedList;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -20,12 +19,10 @@ import jus.aor.mobilagent.kernel._Service;
 
 public class Annuaire implements _Service<LinkedList<Numero>>{
 	private LinkedList<Numero> ln;
-	private LinkedList<Hotel> lh;
 	
 	public Annuaire(Object... args){
 		String fichier = (String) args[0];
 		ln = new LinkedList<Numero>();
-		lh = new LinkedList<Hotel>();
 		
 		DocumentBuilder docBuilder = null;
 		Document doc=null;
@@ -60,7 +57,7 @@ public class Annuaire implements _Service<LinkedList<Numero>>{
 	@Override
 	public LinkedList<Numero> call(Object... params) throws IllegalArgumentException {
 		// TODO Auto-generated method stub
-		lh = (LinkedList<Hotel>) params[0];
+		LinkedList<Hotel> lh = (LinkedList<Hotel>) params[0];
 		
 		LinkedList<Numero> res = new LinkedList<Numero>();
 		for(Hotel h : lh){

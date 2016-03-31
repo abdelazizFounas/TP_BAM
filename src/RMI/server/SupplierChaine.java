@@ -7,7 +7,6 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
-import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -19,7 +18,6 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import RMI.common.Hotel;
-import RMI.common.Numero;
 import RMI.common._Chaine;
 
 public class SupplierChaine extends UnicastRemoteObject implements _Chaine {
@@ -65,7 +63,7 @@ public class SupplierChaine extends UnicastRemoteObject implements _Chaine {
 		}
 		
 		try {
-			SupplierChaine sc = new SupplierChaine(args[0]+i, args[1], i);
+			new SupplierChaine(args[0]+i, args[1], i);
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

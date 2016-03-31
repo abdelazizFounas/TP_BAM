@@ -17,7 +17,6 @@ import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-import RMI.common.Hotel;
 import RMI.common.Numero;
 import RMI.common._Annuaire;
 
@@ -59,7 +58,7 @@ public class SupplierAnnuaire extends UnicastRemoteObject implements _Annuaire {
 		}
 		
 		try {
-			SupplierAnnuaire sa = new SupplierAnnuaire("Annuaire", "Annuaire");
+			new SupplierAnnuaire("Annuaire", "Annuaire");
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

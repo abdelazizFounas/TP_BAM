@@ -15,7 +15,6 @@ public class BAMAgentClassLoader extends ClassLoader{
 	@SuppressWarnings("unused")
 	private String name;
 	private Jar jar;
-	private ClassLoader loader;
 	private HashMap<String, byte[]> hm;
 	
 	public BAMAgentClassLoader(String name, ClassLoader classLoader) {
@@ -33,14 +32,12 @@ public class BAMAgentClassLoader extends ClassLoader{
 		hm = new HashMap<>();
 		
 		this.name = name;
-		loader = classLoader;
 		integrateCode(jar);
 	}
 	
 	public BAMAgentClassLoader(ClassLoader classLoader) {
 		super(classLoader);
 		hm = new HashMap<>();
-		loader = classLoader;
 	}
 	
 	public void integrateCode(Jar jar){

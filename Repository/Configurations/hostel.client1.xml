@@ -9,8 +9,9 @@
 -->
 	<agent class="jus.aor.mobilagent.hostel.LookForHotel" codebase="Hostels.jar" args="Paris">
 		<etape server="mobilagent://localhost:10001/" action="findHotel" />
-		<etape server="mobilagent://localhost:10002/" action="findHotel" />
-		<etape server="mobilagent://localhost:10003/" action="findTelephone" />
+		<etape server="mobilagent://localhost:10002/" action="findHotel" /><etape
+			action="findHotel" server="mobilagent://localhost:10003/" /><etape action="findHotel" server="mobilagent://localhost:10004/" />
+		<etape server="mobilagent://localhost:10005/" action="findTelephone" />
 	</agent>
 <!--
 	<agent class="jus.aor.mobilagent.hello.Hello" codebase=".../Hello.jar" args="">

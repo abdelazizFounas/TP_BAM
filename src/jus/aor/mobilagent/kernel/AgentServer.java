@@ -22,16 +22,11 @@ public class AgentServer implements Runnable{
 	
 	protected BAMServerClassLoader bscl;
 
-	public AgentServer(int port, String name) {
+	public AgentServer(int port, String name) throws MalformedURLException {
 		this.port = port;
 		this.name = name;
 		this.hms = new HashMap<String, _Service<?>>();
-		try {
-			this.bscl = new BAMServerClassLoader(new URL[]{new URL("file://MobilagentServer.jar")}, this.getClass().getClassLoader());
-		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		this.bscl = new BAMServerClassLoader(new URL[]{}, this.getClass().getClassLoader());
 	}
 	
 	@SuppressWarnings("resource")

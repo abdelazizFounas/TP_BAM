@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!DOCTYPE HTML PUBLIC  "-//W3C//DTD HTML 4.0 Transitional//EN" "Server.dtd"> 
-<root>
+<server>
 	<port value="10003"/>
-	<service name="Telephones" codebase="file:///Users/abdelazizfounas/Documents/workspace/TP_BAM/AnnuaireHotel.jar" class="jus.aor.mobilagent.hostel.Annuaire" args="./Repository/DataStore/Annuaire.xml"/>
-</root>
-
+	<service name="Hotels" codebase="file:///Users/abdelazizfounas/Documents/workspace/TP_BAM/HostelService.jar" class="jus.aor.mobilagent.hostel.Chaine" args="./Repository/DataStore/Hotels3.xml"/>
+</server>

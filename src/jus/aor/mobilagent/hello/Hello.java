@@ -6,7 +6,6 @@ package jus.aor.mobilagent.hello;
 
 import jus.aor.mobilagent.kernel.Agent;
 import jus.aor.mobilagent.kernel._Action;
-import jus.aor.mobilagent.kernel._Service;
 
 /**
  * Classe de test élémentaire pour le bus à agents mobiles

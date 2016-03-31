@@ -32,19 +32,11 @@ public class LookForHotel{
 	public LookForHotel(String arg){
 		localisation = arg;
 	}
-	/**
-	 * réalise une intérrogation
-	 * @return la durée de l'interrogation
-	 * @throws RemoteException
-	 */
-	//public long call() {
-		 //...
-	//}
 
 	public ArrayList<Numero> get(){
 		ArrayList<Hotel> lh = new ArrayList<Hotel>();
 		
-		for(int i = 1; i <= 4; i++){
+		for(int i = 1; i <= 2; i++){
 			lh.addAll(getFromHotel("Chaine"+i,9999+i));
 		}
 		
