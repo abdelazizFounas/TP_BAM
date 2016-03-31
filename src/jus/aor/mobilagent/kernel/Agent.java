@@ -89,7 +89,7 @@ public abstract class Agent implements _Agent{
 			
 			ObjectOutputStream oos = new ObjectOutputStream(os);
 			
-			oos.writeObject(new BAMAgentClassLoader(this.getClass().getClassLoader()).extractCode());
+			oos.writeObject(((BAMAgentClassLoader)this.getClass().getClassLoader()).extractCode());
 			
 			ObjectOutputStream ooos = new ObjectOutputStream(os);
 			

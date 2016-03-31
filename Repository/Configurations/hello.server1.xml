@@ -2,6 +2,6 @@
 <!DOCTYPE HTML PUBLIC  "-//W3C//DTD HTML 4.0 Transitional//EN" "Server.dtd"> 
 <server>
 	<port value="10001"/><service name="Show" class="jus.aor.mobilagent.hostel.ServiceShow"
-		codebase="file://ShowService.jar" args="30" />
+		codebase="file:///Users/abdelazizfounas/Documents/workspace/TP_BAM/ShowService.jar" args="30" />
 </server>
 

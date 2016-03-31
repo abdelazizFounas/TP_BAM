@@ -95,6 +95,7 @@ public class AgentServer implements Runnable{
 	}
 	
 	public void addService(String name, _Service<?> service){
+		
 		hms.put(name, service);
 	}
 	
