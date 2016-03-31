@@ -12,10 +12,13 @@ import java.net.MalformedURLException;
 import java.net.Socket;
 import java.net.URI;
 import java.net.URL;
+import java.rmi.Naming;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import RMI.common._Chaine;
+import jus.aor.mobilagent.annuaire_services._AnnuaireServices;
 import jus.aor.mobilagent.kernel.BAMAgentClassLoader;
 import jus.aor.mobilagent.kernel._Agent;
 
@@ -75,6 +78,17 @@ public final class Server implements _Server{
 	public final void addService(String name, String classeName, String codeBase, Object... args) {
 		try {
 			//A COMPLETER
+			_AnnuaireServices obj = null;
+			try{
+				obj = (_AnnuaireServices)Naming.lookup("//localhost:9999/AnnuaireServices");
+			}
+			catch (Exception e){
+			}
+			
+			if(obj != null){
+				obj.BindService(agentServer.site(), name);
+			}
+			
 			bscl.addURL(new URL(codeBase));
 			Class<?> classe = Class.forName(classeName, true, bscl);
 			_Service<?> serv = (_Service<?>)classe.getConstructor(Object[].class).newInstance(new Object[]{args});
@@ -102,12 +116,25 @@ public final class Server implements _Server{
 			_Agent a = (_Agent) classe.getConstructor(Object[].class).newInstance(new Object[]{args});
 		    
 		    a.init(agentServer, agentServer.name);
-		   
-		    for(int i = 0; i<etapeAction.size(); i++){
-		    	Field f = classe.getDeclaredField(etapeAction.get(i));
-		    	f.setAccessible(true);
-		    	
-		    	a.addEtape(new Etape(new URI(etapeAddress.get(i)), (_Action)f.get(a)));
+		    
+		    _AnnuaireServices obj = null;
+			try{
+				obj = (_AnnuaireServices)Naming.lookup("//localhost:9999/AnnuaireServices");
+			}
+			catch (Exception e){
+			}
+			
+			if(obj != null){
+				obj.BindService(agentServer.site(), name);
+			}
+			
+		    if(obj == null){
+		    	for(int i = 0; i<etapeAction.size(); i++){
+			    	Field f = classe.getDeclaredField(etapeAction.get(i));
+			    	f.setAccessible(true);
+			    	
+			    	a.addEtape(new Etape(new URI(etapeAddress.get(i)), (_Action)f.get(a)));
+			    }
 		    }
 		    
 		    startAgent(a, bacl);
