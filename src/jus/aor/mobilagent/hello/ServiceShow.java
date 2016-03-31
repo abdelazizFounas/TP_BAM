@@ -1,4 +1,4 @@
-package jus.aor.mobilagent.hostel;
+package jus.aor.mobilagent.hello;
 
 import jus.aor.mobilagent.kernel._Service;
 

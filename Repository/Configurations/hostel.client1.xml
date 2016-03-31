@@ -2,12 +2,12 @@
 <!DOCTYPE HTML PUBLIC  "-//W3C//DTD HTML 4.0 Transitional//EN" "Server.dtd"> 
 <server>
 	<port value="10000"/>
-	<service name="Duration" codebase="Duration.jar" class="jus.aor.mobilagent.hostel.Duration" args=""/>
+	<service name="Duration" codebase="file:///Users/abdelazizfounas/Documents/workspace/TP_BAM/Duration.jar" class="jus.aor.mobilagent.hostel.Duration" args=""/>
 	
 <!--
 	<service name="Telephones" codebase="file:///.../AnnuaireHotel.jar" class="jus.aor.mobilagent.hostel.Annuaire" args=".../DataStore/Annuaire.xml"/>
 -->
-	<agent class="jus.aor.mobilagent.hostel.LookForHotel" codebase="Hostel.jar" args="Paris">
+	<agent class="jus.aor.mobilagent.hostel.LookForHotel" codebase="Hostels.jar" args="Paris">
 		<etape server="mobilagent://localhost:10001/" action="findHotel" />
 		<etape server="mobilagent://localhost:10002/" action="findHotel" />
 		<etape server="mobilagent://localhost:10003/" action="findTelephone" />

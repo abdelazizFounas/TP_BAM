@@ -2,6 +2,6 @@
 <!DOCTYPE HTML PUBLIC  "-//W3C//DTD HTML 4.0 Transitional//EN" "Server.dtd"> 
 <server>
 	<port value="10001"/>
-	<service name="Hotels" codebase="HostelService.jar" class="jus.aor.mobilagent.hostel.Chaine" args="./Repository/DataStore/Hotels1.xml"/>
+	<service name="Hotels" codebase="file:///Users/abdelazizfounas/Documents/workspace/TP_BAM/HostelService.jar" class="jus.aor.mobilagent.hostel.Chaine" args="./Repository/DataStore/Hotels1.xml"/>
 </server>
 

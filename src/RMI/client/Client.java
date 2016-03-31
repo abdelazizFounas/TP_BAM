@@ -33,24 +33,20 @@ public class Client {
 
 		if (System.getSecurityManager() == null)
 			System.setSecurityManager(new SecurityManager());
-		
-		System.out.println("ICI1");
 
 		LookForHotel lfh = new LookForHotel(local);
 		
-		System.out.println("ICI2");
-		
 		ArrayList<Numero> ln = new ArrayList<Numero>();
 		
-		System.out.println("Taille numero : "+ln.size());
-		
+		long tpsDebut = System.currentTimeMillis();
 		ln = lfh.get();
+		long tpsArrive = System.currentTimeMillis();
 		
-		System.out.println("Taille numero : "+ln.size());
-		
-		System.out.println("Voila les numeros trouves :");
+		/*System.out.println("Voila les numeros trouves :");
 		for(int i = 0; i < ln.size(); i++){
 			System.out.println(ln.get(i).toString());
-		}
+		}**/
+		
+		System.out.println("En : " + (tpsArrive-tpsDebut)/(long)1000 + " secondes.");
 	}
 }

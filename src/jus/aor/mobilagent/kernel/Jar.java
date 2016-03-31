@@ -11,6 +11,7 @@ import java.io.Serializable;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.Map;
 import java.util.jar.JarEntry;
 import java.util.jar.JarException;
@@ -76,6 +77,7 @@ public class Jar implements Iterable<Map.Entry<String,byte[]>>, Serializable{
 		if(result==null) result = contents.get(formatClassName(name));
 		return result;
 	}
+	
 	/**
    * Restitue le contenu d'une classe du jar.
    * @param name le nom de la classe.

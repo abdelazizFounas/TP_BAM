@@ -41,18 +41,7 @@ public abstract class Agent implements _Agent{
 		
 		route = new Route(new Etape(agentServer.site(), retour()));
 		
-		next = new Etape(agentServer.site(), new _Action() {
-			
-			/**
-			 * 
-			 */
-			private static final long serialVersionUID = -2663274152602472040L;
-
-			@Override
-			public void execute() {
-				System.out.println("Debut de l'agent");
-			}
-		});
+		next = new Etape(agentServer.site(), retour());
 	}
 
 	@Override

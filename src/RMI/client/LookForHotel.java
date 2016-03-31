@@ -38,7 +38,7 @@ public class LookForHotel{
 	 * @throws RemoteException
 	 */
 	//public long call() {
-		// ...
+		 //...
 	//}
 
 	public ArrayList<Numero> get(){
