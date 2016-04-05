@@ -6,6 +6,7 @@ import java.io.ObjectInputStream;
 import java.net.MalformedURLException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.net.SocketException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
@@ -19,15 +20,13 @@ public class AgentServer implements Runnable{
 	protected int port=10140;
 	
 	protected HashMap<String, _Service<?>> hms;
-	
-	protected BAMServerClassLoader bscl;
 
 	public AgentServer(int port, String name) throws MalformedURLException {
 		this.port = port;
 		this.name = name;
 		this.hms = new HashMap<String, _Service<?>>();
-		this.bscl = new BAMServerClassLoader(new URL[]{}, this.getClass().getClassLoader());
 	}
+	
 	
 	@SuppressWarnings("resource")
 	public void run(){
@@ -36,7 +35,6 @@ public class AgentServer implements Runnable{
 			
 			Socket client = null;
 			_Agent agent = null;
-			
 			while(true){
 				client = ss.accept();
 				agent = getAgent(client);
@@ -46,7 +44,7 @@ public class AgentServer implements Runnable{
 				new Thread(agent).start();
 			}
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			System.out.println("ici");
 			e.printStackTrace();
 		}
 	}

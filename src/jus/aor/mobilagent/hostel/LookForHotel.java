@@ -4,18 +4,13 @@
 
 package jus.aor.mobilagent.hostel;
 
-import java.net.MalformedURLException;
 import java.net.URI;
 import java.rmi.Naming;
-import java.rmi.NotBoundException;
-import java.rmi.RemoteException;
 import java.util.LinkedList;
 
 import jus.aor.mobilagent.annuaire_services._AnnuaireServices;
 import jus.aor.mobilagent.kernel.Agent;
 import jus.aor.mobilagent.kernel.Etape;
-import jus.aor.mobilagent.kernel.Hotel;
-import jus.aor.mobilagent.kernel.Numero;
 import jus.aor.mobilagent.kernel._Action;
 import jus.aor.mobilagent.kernel._Service;
 
@@ -46,6 +41,7 @@ public class LookForHotel extends Agent{
 		 localisation = (String) args[0];
 		 
 		 lh = new LinkedList<Hotel>();
+		 ln = new LinkedList<Numero>();
 	 }
 	 /**
 	 * l'action à entreprendre sur les serveurs visités  

@@ -17,7 +17,6 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import RMI.common._Chaine;
 import jus.aor.mobilagent.annuaire_services._AnnuaireServices;
 import jus.aor.mobilagent.kernel.BAMAgentClassLoader;
 import jus.aor.mobilagent.kernel._Agent;
@@ -38,8 +37,6 @@ public final class Server implements _Server{
 	/** le logger de ce serveur */
 	protected Logger logger=null;
 	
-	protected BAMServerClassLoader bscl;
-	
 	/**
 	 * Démarre un serveur de type mobilagent 
 	 * @param port le port d'écuote du serveur d'agent 
@@ -48,7 +45,6 @@ public final class Server implements _Server{
 	public Server(final int port, final String name) throws MalformedURLException{
 		this.name=name;
 		
-		this.bscl = new BAMServerClassLoader(new URL[]{}, this.getClass().getClassLoader());
 		try {
 			this.port=port;
 			/* mise en place du logger pour tracer l'application */
@@ -89,7 +85,12 @@ public final class Server implements _Server{
 				obj.BindService(agentServer.site(), name);
 			}
 			
+			BAMServerClassLoader bscl = new BAMServerClassLoader(new URL[]{new URL("file:///Users/abdelazizfounas/Documents/workspace/TP_BAM/"+codeBase)},this.getClass().getClassLoader());
+			
 			bscl.addURL(new URL(codeBase));
+			
+			bscl.loadClass(classeName);
+			
 			Class<?> classe = Class.forName(classeName, true, bscl);
 			_Service<?> serv = (_Service<?>)classe.getConstructor(Object[].class).newInstance(new Object[]{args});
 		    agentServer.addService(name, serv);
@@ -110,7 +111,7 @@ public final class Server implements _Server{
 	public final void deployAgent(String classeName, Object[] args, String codeBase, List<String> etapeAddress, List<String> etapeAction) {
 		//A COMPLETER en terme de startAgent
 		try {
-			BAMAgentClassLoader bacl = new BAMAgentClassLoader(codeBase, bscl);
+			BAMAgentClassLoader bacl = new BAMAgentClassLoader(codeBase, this.getClass().getClassLoader());
 			Class<?> classe = Class.forName(classeName, true, bacl);
 			
 			_Agent a = (_Agent) classe.getConstructor(Object[].class).newInstance(new Object[]{args});

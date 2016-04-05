@@ -13,7 +13,6 @@ import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-import jus.aor.mobilagent.kernel.Hotel;
 import jus.aor.mobilagent.kernel._Service;
 
 public class Chaine implements _Service<LinkedList<Hotel>>{

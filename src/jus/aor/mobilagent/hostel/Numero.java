@@ -1,4 +1,4 @@
-package jus.aor.mobilagent.kernel;
+package jus.aor.mobilagent.hostel;
 
 import java.io.Serializable;
 

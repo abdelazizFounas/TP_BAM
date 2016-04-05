@@ -13,8 +13,6 @@ import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-import jus.aor.mobilagent.kernel.Hotel;
-import jus.aor.mobilagent.kernel.Numero;
 import jus.aor.mobilagent.kernel._Service;
 
 public class Annuaire implements _Service<LinkedList<Numero>>{
